@@ -23,4 +23,4 @@ def roman_to_int(roman_string):
          
         prev = value
         
-    return total    
+    return total
