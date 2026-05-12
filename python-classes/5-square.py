@@ -3,7 +3,7 @@
 
 
 class Square:
-    """Represents a square"""
+    """Represent a square"""
 
     def __init__(self, size=0):
         """Initialize square"""
@@ -11,12 +11,12 @@ class Square:
 
     @property
     def size(self):
-        """Retrieve current size"""
+        "Retrieve size"
         return self.__size
 
     @size.setter
     def size(self, value):
-        """Set square size with validation"""
+        """Set size with validation"""
         if type(value) is not int:
             raise TypeError("size must be an integer")
 
@@ -26,5 +26,14 @@ class Square:
         self.__size = value
 
     def area(self):
-        """Return area of square"""
+        """Return area"""
         return self.__size**2
+
+    def my_print(self):
+        """Print square with #"""
+        if self.__size == 0:
+            print("")
+            return
+
+        for i in range(self.__size):
+            print("#" * self.__size)
