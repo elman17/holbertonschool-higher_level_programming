@@ -5,13 +5,13 @@
 class Rectangle:
     """Defines a rectangle"""
 
-    number_of_instance = 0
+    number_of_instances = 0
     print_symbol = "#"
 
-    def __init__(self, width=0, heght=0):
-        self.widthc = width
-        self.height = heght
-        Rectangle.number_of_instance + 1
+    def __init__(self, width=0, height=0):
+        self.width = width
+        self.height = height
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -32,7 +32,7 @@ class Rectangle:
     @height.setter
     def height(self, value):
         if not isinstance(value, int):
-            raise ("height must be an integer")
+            raise TypeError("height must be an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
@@ -60,8 +60,8 @@ class Rectangle:
         return "Rectangle({}, {})".format(self.__width, self.__height)
 
     def __del__(self):
-        print("Bye rectagle...")
-        Rectangle.number_of_instance -= 1
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
