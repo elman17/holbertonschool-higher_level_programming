@@ -53,7 +53,7 @@ class Rectangle:
             return ""
         rows = []
         for i in range(self.__height):
-            rows.append(str(self.print_symbol) * self.__width) 
+            rows.append(str(self.print_symbol) * self.__width)
         return "\n".join(rows)
 
     def __repr__(self):
