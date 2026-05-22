@@ -1,4 +1,12 @@
+The `1-my_list` module
+======================
+
+Using `MyList`
+--------------
+
 >>> MyList = __import__('1-my_list').MyList
+
+Normal list tests:
 >>> my_list = MyList()
 >>> my_list.append(-3)
 >>> my_list.append(-1)
@@ -11,3 +19,16 @@
 [-10, -3, -1, 0, 5]
 >>> print(my_list)
 [-3, -1, -10, 5, 0]
+
+Empty list test:
+>>> empty_list = MyList()
+>>> empty_list.print_sorted()
+[]
+>>> print(empty_list)
+[]
+
+Single element test:
+>>> single_list = MyList()
+>>> single_list.append(42)
+>>> single_list.print_sorted()
+[42]
