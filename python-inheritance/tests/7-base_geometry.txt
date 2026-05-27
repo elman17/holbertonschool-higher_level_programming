@@ -65,7 +65,6 @@ Importing the module and the class:
     Exception: area() is not implemented
 
 5. Missing arguments:
-
     >>> bg.integer_validator()
     Traceback (most recent call last):
     ...
