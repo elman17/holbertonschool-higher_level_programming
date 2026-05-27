@@ -2,22 +2,22 @@
 import math
 
 """Shapes, Interfaces, and Duck Typing"""
-from abc import ABC, abstractclassmethod
+from abc import ABC, abstractmethod
 
 
 class Shape(ABC):
-    @abstractclassmethod
+    @abstractmethod
     def area(self):
         pass
 
-    @abstractclassmethod
+    @abstractmethod
     def perimeter(self):
         pass
 
 
 class Circle(Shape):
     def __init__(self, radius):
-        self.__radiaus = radius
+        self.radiaus = radius
 
     def area(self):
         return math.pi * self.radius**2
@@ -28,8 +28,8 @@ class Circle(Shape):
 
 class Rectangle(Shape):
     def __init__(self, width, height):
-        self.__height = height
-        self.__width = width
+        self.height = height
+        self.width = width
 
     def area(self):
         return self.width * self.height
@@ -40,4 +40,4 @@ class Rectangle(Shape):
 
 def shape_info(shape):
     print("Area: {}".format(shape.area))
-    print("Perimeter: {}".format(shape.perimeter))
+    print("Area: {}".format(shape.area()))
