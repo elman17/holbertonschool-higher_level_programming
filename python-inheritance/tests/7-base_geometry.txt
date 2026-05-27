@@ -47,6 +47,11 @@ Importing the module and the class:
     ...
     TypeError: age must be an integer
 
+    >>> bg.integer_validator("age", {3, 4})
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
 3. ValueError cases (Value is less than or equal to 0):
     >>> bg.integer_validator("age", 0)
     Traceback (most recent call last):
@@ -57,6 +62,11 @@ Importing the module and the class:
     Traceback (most recent call last):
     ...
     ValueError: distance must be greater than 0
+
+    >>> bg.integer_validator("age", -1)
+    Traceback (most recent call last):
+    ...
+    ValueError: age must be greater than 0
 
 4. Testing area() method:
     >>> bg.area()
