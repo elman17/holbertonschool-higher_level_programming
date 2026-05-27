@@ -42,6 +42,11 @@ Importing the module and the class:
     ...
     TypeError: age must be an integer
 
+    >>> bg.integer_validator("age", None)
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
 3. ValueError cases (Value is less than or equal to 0):
     >>> bg.integer_validator("age", 0)
     Traceback (most recent call last):
