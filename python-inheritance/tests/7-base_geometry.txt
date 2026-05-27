@@ -9,6 +9,7 @@ Importing the module and the class:
 1. Valid cases (Should not raise any exception):
     >>> bg.integer_validator("width", 10)
     >>> bg.integer_validator("height", 89)
+    >>> bg.integer_validator("age", 1)
 
 2. TypeError cases (Value is not an integer):
     >>> bg.integer_validator("name", "John")
@@ -42,9 +43,14 @@ Importing the module and the class:
     ...
     ValueError: distance must be greater than 0
 
-4. Testing the inherited area() method:
+4. Testing area() method:
     >>> bg.area()
     Traceback (most recent call last):
     ...
     Exception: area() is not implemented
-    >>> bg.integer_validator("age", 1)
+
+5. Missing arguments:
+    >>> bg.integer_validator()
+    Traceback (most recent call last):
+    ...
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
