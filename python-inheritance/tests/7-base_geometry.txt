@@ -32,6 +32,16 @@ Importing the module and the class:
     ...
     TypeError: my_list must be an integer
 
+    >>> bg.integer_validator("age", (4,))
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
+    >>> bg.integer_validator("age", (3, 4))
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
+
 3. ValueError cases (Value is less than or equal to 0):
     >>> bg.integer_validator("age", 0)
     Traceback (most recent call last):
@@ -54,15 +64,3 @@ Importing the module and the class:
     Traceback (most recent call last):
     ...
     TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
-
-6. Tuple
-    >>> bg.integer_validator("age", (4,))
-    Traceback (most recent call last):
-    ...
-    TypeError: age must be an integer
-
-7. Set
-   >>> bg.integer_validator("age", (3, 4))
-    Traceback (most recent call last):
-    ...
-    TypeError: age must be an integer    
