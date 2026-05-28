@@ -4,7 +4,7 @@
 
 class Fish:
     def swim(self):
-        print("The fish is swimming")
+        print("The fish is swimming!")
 
     def habitat(self):
         print("The fish lives in water")
