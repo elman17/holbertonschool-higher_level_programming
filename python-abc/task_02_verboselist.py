@@ -15,7 +15,7 @@ class VerboseList(list):
         print("Extended the list with [{}] item".format(length))
 
     def remove(self, item):
-        print("Remove [{item}] from the list".format(item))
+        print("Remove [{}] from the list".format(item))
         super().remove(item)
 
     def pop(self, index=-1):
