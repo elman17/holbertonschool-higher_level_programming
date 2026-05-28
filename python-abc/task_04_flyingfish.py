@@ -20,7 +20,7 @@ class Bird:
 
 class FlyingFish(Fish, Bird):
     def swim(self):
-        print("The flying fish is swimming")
+        print("The flying fish is swimming!")
 
     def fly(self):
         print("The flying fish is soaring!")
