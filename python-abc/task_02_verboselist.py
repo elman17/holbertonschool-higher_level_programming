@@ -2,7 +2,7 @@
 """Extending the Python List with Notifications"""
 
 
-class VerboseList(self):
+class VerboseList(list):
     """A special list class that displays a notification on the screen for each operation"""
 
     def append(self, item):
