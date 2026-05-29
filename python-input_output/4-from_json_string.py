@@ -6,4 +6,4 @@ import json
 
 def from_json_string(my_obj):
     """converter to object"""
-    return json.load(my_obj)
+    return json.loads(my_obj)
