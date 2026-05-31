@@ -10,8 +10,7 @@ def serialize_and_save_to_file(data, filename):
         json.dump(data, f)
 
 
-def load_and_deseriliaze(filename):
+def load_and_deserialize(filename):
     """Read from file"""
     with open(filename, "r") as f:
-        json.load(filename)
         return json.load(f)
