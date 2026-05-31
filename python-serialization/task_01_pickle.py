@@ -13,8 +13,8 @@ class CustomObject:
     def display(self):
         """Print object"""
         print("Name: {}".format(self.name))
-        print("Age {}".format(self.age))
-        print("Is student {}".format(self.is_student))
+        print("Age: {}".format(self.age))
+        print("Is Student {}".format(self.is_student))
 
     def serialize(self, filename):
         try:
@@ -22,3 +22,13 @@ class CustomObject:
                 pickle.dump(self, f)
         except Exception:
             return None
+
+    @classmethod
+    def deserialize(cls, filename):
+        """Load object"""
+        try:
+            with open(filename, "rb") as f:
+                return pickle.load(f)
+        except:
+            Exception
+        return None
