@@ -1,5 +1,4 @@
-#!/usr/bin/node
-
+#!/usr/bin/nod
 function add(a, b) {
   return a + b;
 }
