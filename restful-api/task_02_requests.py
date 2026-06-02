@@ -6,25 +6,37 @@ import requests
 
 
 def fetch_and_print_posts():
-    """Fetch and print"""
+    """Fetch posts from api"""
     url = "https://jsonplaceholder.typicode.com/posts"
     response = requests.get(url)
 
-    print("Status Code: {}".format(response.statuse_code))
-    if response.statuse_code == 200:
+    print("Stutus Code: {}".format(response.status_code))
+
+    if response.status_code == 200:
+        posts = response.json()
+        for post in posts:
+            print(post.get("title"))
+
+
+def fetch_and_save_posts():
+    """Fetch posts from api and save to posts.csv"""
+    url = "https://jsonplaceholder.typicode.com/posts"
+    response = requests.get(url)
+
+    if response.status_code == 200:
         posts = response.json()
 
-        fieldname = ["id", "title", "body"]
+        fieldnames = ["id", "title", "body"]
 
         with open("posts.csv", "w", encoding="utf-8", newline="") as f:
-            writer = csv.DictWriter(f, fieldname=fieldname)
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
 
             writer.writeheader()
 
             for post in posts:
                 filtered_post = {
-                    "id": posts.get("id"),
+                    "id": post.get("id"),
                     "title": post.get("title"),
                     "body": post.get("body"),
                 }
-                writer.writerow(filtered_post)
+                writer.writerow()
