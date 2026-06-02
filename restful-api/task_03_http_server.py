@@ -8,7 +8,7 @@ import json
 class SimpleAPIHandler(http.server.BaseHTTPRequestHandler):
     """Routing class"""
 
-    def to_GET(self):
+    def do_GET(self):
         if self.path == "/":
             self.send_response(200)
             self.send_header("Content-type", "text/plain; charset=utf-8")
@@ -19,7 +19,7 @@ class SimpleAPIHandler(http.server.BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header("Content-type", "text/plain; charset=utf-8")
             self.end_headers()
-            self.wfile(b"OK")
+            self.wfile.write(b"OK")
 
         elif self.path == "/data":
             self.send_response(200)
@@ -28,11 +28,11 @@ class SimpleAPIHandler(http.server.BaseHTTPRequestHandler):
 
             data = {"name": "John", "age": 30, "city": "New York"}
 
-            self.wfile.write(json.dump(data).encode("utf-8"))
+            self.wfile.write(json.dumps(data).encode("utf-8"))
 
         elif self.path == "/info":
             self.send_response(200)
-            self.send_header("Comtent-type", "application")
+            self.send_header("Comtent-type", "application/json")
             self.end_headers()
 
             info = {
