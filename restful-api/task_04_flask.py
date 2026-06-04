@@ -9,7 +9,7 @@ users = {}
 def home():
     return "Welcome to the Flask API!"
 
-@app.route('/staus')
+@app.route('/status')
 def status():
     return 'OK'
 
@@ -25,7 +25,7 @@ def get_user(username):
 
 @app.route('/add_user', methods=['POST'])
 def add_user():
-    data = request.get_json(slient=True)
+    data = request.get_json(silient=True)
     
     if data is None:
         return jsonify({"error": "Invalid JSON"}), 400
