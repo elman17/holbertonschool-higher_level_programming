@@ -40,4 +40,4 @@ def add_user():
     return jsonify({"message": "User added", "user": data}), 201
 
 if __name__ == "main":
-    app.run()
+    app.run(host="0.0.0.0", port=5000)
