@@ -68,7 +68,7 @@ def login():
 @jwt_required()
 def jwt_protected():
     current_user = get_jwt_identity()
-    return jsonify({"message": "JWT Auth: Access Granted"}), 200
+    return "JWT Auth: Access Granted", 200
 
 @jwt.unauthorized_loader
 def unauthorized_callback(err):
@@ -89,7 +89,7 @@ def admin_required():
     user = users.get(current_user)
 
     if user["role"] != "admin":
-        return jsonify({"error": "Admin access required"}), 403
+        return "Admin access required", 403
     return jsonify({"message": "Admin Access: Granted"}), 200
 
 
