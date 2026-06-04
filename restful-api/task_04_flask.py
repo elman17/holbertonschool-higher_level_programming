@@ -39,5 +39,5 @@ def add_user():
     users[data['username']] = data
     return jsonify({"message": "User added", "user": data}), 201
 
-if __name__ == "main":
-    app.run(host="0.0.0.0", port=5000)
+if __name__ == "__main__":
+    app.run()
