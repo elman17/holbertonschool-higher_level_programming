@@ -15,7 +15,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__)
 auth = HTTPBasicAuth()
 
-app.config["JWR_SECRET_KEY"] = "super-secret-key"
+app.config["JWT_SECRET_KEY"] = "super-secret-key"
 jwt = JWTManager(app)
 
 users = {
@@ -58,36 +58,42 @@ def login():
         return jsonify({"error": "Invalid credentials"}), 401
 
     token = create_access_token(
-        identity=username, additional_claims={"role": user("role")}
+        identity=username, additional_claims={"role": user["role"]}
     )
 
     return jsonify({"access_token": token}), 200
 
 
-@app.route("/jwt-proteced", methods=["GET"])
+@app.route("/jwt-protected", methods=["GET"])
 @jwt_required()
 def jwt_protected():
     current_user = get_jwt_identity()
     return jsonify({"message": "JWT Auth: Access Granted"}), 200
 
+@jwt.unauthorized_loader
+def unauthorized_callback(err):
+    return jsonify({"error": "Mising or invalid token"}), 401
+
+@jwt.invalid_token_loader
+def invalid_token_callback(err):
+    return jsonify({"error": "invalid token"}), 401
+
+@jwt.expired_token_loader
+def expired_token_callback(header, payload):
+    return jsonify({"error": "Token has expired"}), 401
 
 @app.route("/admin-only", methods=["GET"])
 @jwt_required()
 def admin_required():
     current_user = get_jwt_identity()
-    user = user.get(current_user)
+    user = users.get(current_user)
 
     if user["role"] != "admin":
         return jsonify({"error": "Admin access required"}), 403
     return jsonify({"message": "Admin Access: Granted"}), 200
 
 
-@jwt.invalid_token_loader
-def expired_token_callback(header, payload):
-    return jsonify({"error": "Token has expired"}), 401
-
-
 if __name__ == "__main__":
-    app.run(port=5001, debug=True)
+    app.run()
 
 # print(users["user1"]["password"])
