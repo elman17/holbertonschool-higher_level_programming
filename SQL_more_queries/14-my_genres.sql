@@ -12,4 +12,3 @@ WHERE
     tv_shows.title = 'Dexter'
 ORDER BY 
     tv_genres.name ASC;
-    
