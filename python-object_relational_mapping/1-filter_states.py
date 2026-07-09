@@ -18,7 +18,10 @@ def filter_states():
 
     cursor = db.cursor()
 
-    sql_query = "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC"
+    sql_query = (
+        "SELECT * FROM states WHERE name LIKE BINARY 'N%' "
+        "ORDER BY id ASC"
+    )
     cursor.execute(sql_query)
 
     query_rows = cursor.fetchall()
