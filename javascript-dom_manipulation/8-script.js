@@ -1,12 +1,12 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const url = "https://hellosalut.stefanbohacek.com/?lang=fr";
-  const helloDiv = document.querySelector("#hello");
+document.addEventListener('DOMContentLoaded', function () {
+  const url = 'https://hellosalut.stefanbohacek.com/?lang=fr'
+  const helloDiv = document.querySelector('#hello')
 
   fetch(url)
     .then(function (response) {
-      return response.json();
+      return response.json()
     })
     .then(function (data) {
-      helloDiv.textContent = data.hello;
-    });
-});
+      helloDiv.textContent = data.hello
+    })
+})
