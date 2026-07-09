@@ -19,7 +19,7 @@ def filter_states_by_input():
     cursor = db.cursor()
 
     sql_query = (
-        "SELECT * FROM states WHERE name LIKE BINARY '{}' " 
+        "SELECT * FROM states WHERE name LIKE BINARY '{}' "
         "ORDER BY id ASC"
     ).format(sys.argv[4])
 
