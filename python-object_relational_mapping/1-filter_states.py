@@ -1,12 +1,13 @@
 #!/usr/bin/python3
-"""Get all states"""
+"""Filter states"""
 
 import MySQLdb
 import sys
 
 
-def select_all_states():
-    """Connects to the database and fetches all states"""
+def filter_states():
+    """Connects to the database and fetches states starting N."""
+
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
@@ -16,7 +17,10 @@ def select_all_states():
     )
 
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM states ORDER BY id ASC")
+
+    sql_query = "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC"
+    cursor.execute(sql_query)
+
     query_rows = cursor.fetchall()
 
     for row in query_rows:
@@ -27,4 +31,4 @@ def select_all_states():
 
 
 if __name__ == "__main__":
-    select_all_states()
+    filter_states()
