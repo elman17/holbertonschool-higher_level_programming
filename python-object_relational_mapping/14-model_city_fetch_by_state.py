@@ -13,9 +13,9 @@ def fetch_cities_by_state():
     db_url = "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
         sys.argv[1], sys.argv[2], sys.argv[3]
     )
-    engine = create_engine(pool_pre_ping=True)
+    engine = create_engine(db_url ,pool_pre_ping=True)
 
-    Session = sessionmaker(db_url, bind=engine)
+    Session = sessionmaker(bind=engine)
     session = Session()
 
     results = (
@@ -25,7 +25,7 @@ def fetch_cities_by_state():
         .all()
     )
 
-    for city, state in State:
+    for city, state in results:
         print("{}: ({})".format(state.name, city.id, city.name))
 
     session.close()
