@@ -10,7 +10,7 @@ from sqlalchemy.orm import sessionmaker
 def filter_states_by_a():
     """Connect to the database and fetches contain a states"""
     db_url = "mysql+mysqldb://{}:{}localhost:3306/{}".format(
-        sys.argv[1], sys.arg[2], sys.argv[3]
+        sys.arg[1], sys.arg[2], sys.arg[3]
     )
     engine = create_engine(db_url, pool_pre_ping=True)
 
