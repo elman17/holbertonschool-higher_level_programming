@@ -26,7 +26,7 @@ def fetch_cities_by_state():
     )
 
     for city, state in results:
-        print("{}: ({})".format(state.name, city.id, city.name))
+        print("{}: ({}) {}".format(state.name, city.id, city.name))
 
     session.close()
 
