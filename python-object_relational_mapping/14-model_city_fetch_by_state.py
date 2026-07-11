@@ -13,7 +13,7 @@ def fetch_cities_by_state():
     db_url = "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
         sys.argv[1], sys.argv[2], sys.argv[3]
     )
-    engine = create_engine(db_url ,pool_pre_ping=True)
+    engine = create_engine(db_url, pool_pre_ping=True)
 
     Session = sessionmaker(bind=engine)
     session = Session()
